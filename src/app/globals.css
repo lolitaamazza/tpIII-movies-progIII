@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*ocultar barras de scroll*/
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/*ocultar scrollbars a nivel global (mantiene scroll por teclado/gestos/rueda)*/
+html, body, #__next, .scrollbar-hide {
+  -ms-overflow-style: none; /*IE  Edge*/
+  scrollbar-width: none; /*firefox*/
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#__next::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /*Chrome, Safari, Opera*/
+  width: 0;
+  height: 0;
+}
+
+/*asegura comportamiento de scroll suave*/
+* {
+  -webkit-overflow-scrolling: touch;
+}
