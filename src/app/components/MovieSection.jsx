@@ -44,11 +44,18 @@ export default function MovieSection({ title, endpoint }) {
 
   return (
     <section>
-      {/* contenedor del slider horizontal
-         'overflow-x-auto': habilita el desplazamiento horizontal cuando el contenido excede el ancho de la pantalla
-         'scrollbar-hide': oculta la barra de scroll clásica del navegador para mantener la interfaz limpia
-         'snap-x snap-mandatory': forza a que el scroll se alinee perfectamente (haga un imán) en el inicio de cada tarjeta al deslizar.
-         touchAction: "pan-y" es una propiedad CSS crítica: le avisa al navegador del celular que los gestos verticales deben mover la página hacia arriba o hacia abajo, evitando que el usuario se quede "atrapado" al pasar el dedo por encima del carrusel*/}
+      {/*encabezado de la sección: título + hint de deslizar */}
+      <div className="flex items-baseline justify-between mb-6 pr-6 md:pr-16">
+        <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+          {title}
+        </h2>
+        <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-wider">
+          Deslizar →
+        </span>
+      </div>
+
+      {/* contenedor del slider horizontal */}
       <div
         className="flex gap-6 overflow-x-auto overflow-y-hidden pr-6 md:pr-16 scrollbar-hide pb-4 snap-x snap-mandatory"
         style={{ touchAction: "pan-y", WebkitOverflowScrolling: "touch" }} //permite que gestos verticales suban/bajen la página

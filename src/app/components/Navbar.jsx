@@ -3,14 +3,14 @@
 import { useState } from "react";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); //open controla si el menú para celulares está abierto (true) o cerrado (false)
 
   return (
+    //'sticky top-0 z-40' fija el navbar en la parte superior de la pantalla mientras el usuario hace scroll
     <nav className="w-full border-b border-zinc-900 bg-black sticky top-0 z-40 font-mono">
       <div className="max-w-7xl mx-auto px-4 md:px-16 h-16 flex items-center justify-between">
         <div />
-
-        {/* links simples sin JS */}
+    {/* ENLACES: navegación x ids, oculta en mobile y activa desde pantallas medianas ('md:flex')*/}
         <div className="hidden md:flex items-center gap-6 md:gap-8 text-[10px] tracking-widest uppercase text-zinc-500">
           <a href="#tendencias" className="hover:text-cyan-400 transition-colors">
             Tendencias
@@ -29,19 +29,22 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/*menu mobile*/}
+        {/*menu mobile md:hidden*/}
         <div className="md:hidden flex items-center">
           <button
-            onClick={() => setOpen((s) => !s)}
+            onClick={() => setOpen((s) => !s)} //invierte el estado booleano (abre/cierra) al hacer clic
             aria-controls="mobile-menu"
-            aria-expanded={open}
+            aria-expanded={open} //atributo de accesibilidad para lectores de pantalla
             className="p-2 rounded-md text-zinc-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
           >
             <span className="sr-only">Abrir menú</span>
+            {/*SVG dinámico q intercambia los iconos (hamburguesa o cruz) leyendo el estado 'open'*/}
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               {open ? (
+                /*icono de cruz cuando el menú está desplegado */
                 <path stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               ) : (
+                /*icono de tres líneas cuando el menú está colapsado*/
                 <path stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
               )}
             </svg>
@@ -49,6 +52,7 @@ export default function Navbar() {
         </div>
       </div>
 
+{/*controla visibilidad del menú mobile animando la altura máxima ('max-h') con transiciones de CSS*/}
       <div
         id="mobile-menu"
         className={`md:hidden bg-black border-t border-zinc-900 overflow-hidden transition-max-h duration-300 ease-in-out ${
