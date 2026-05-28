@@ -1,13 +1,12 @@
 # CINEAPP // INTERACTIVE MOVIES PLATFORM
 
-Una aplicación web interactiva y responsiva para la exploración de catálogos cinematográficos en tiempo real, conectada de manera directa con la API global de The Movie Database (TMDB). El proyecto destaca por una interfaz limpia de alto contraste, tipografías monoespaciadas y un enfoque de diseño neo-futurista.
-
+Una aplicación web interactiva y responsive para la exploración de catálogos cinematográficos en tiempo real, conectada de manera directa con la API global de The Movie Database (TMDB).
 
 ## TECNOLOGÍAS UTILIZADAS
 
 * **Framework:** Next.js 15+ (App Router)
 * **Librería de Interfaz:** React 19
-* **Estilos y Layout:** Tailwind CSS v4 (Mobile First & Utility Classes)
+* **Estilos y Layout:** Tailwind CSS v4 
 * **Cliente de Consultas:** Axios
 * **Persistencia de Datos:** Web Storage API (localStorage)
 
